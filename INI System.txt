@@ -1,0 +1,184 @@
+[Rainmeter]
+Update=1000
+AccurateText=1
+DynamicWindowSize=1
+BackgroundMode=2
+SolidColor=0,0,0,1
+
+
+[Metadata]
+Name=Cyber Network Monitor
+Author=ChatGPT
+Information=Glass Hacker Network HUD
+Version=1.0
+
+
+[Variables]
+FontName=Consolas
+Green=0,255,150,255
+SoftGreen=0,170,100,220
+White=220,255,240,220
+Glass=5,10,15,65
+
+
+
+;========================
+; NETWORK MEASURES
+;========================
+
+[MeasureDownload]
+Measure=NetIn
+
+
+[MeasureUpload]
+Measure=NetOut
+
+
+[MeasureIP]
+Measure=Plugin
+Plugin=SysInfo
+SysInfoType=IP_ADDRESS
+
+
+
+;========================
+; GLASS PANEL
+;========================
+
+[Background]
+Meter=Shape
+Shape=Rectangle 0,0,240,190,16 | Fill Color #Glass# | StrokeWidth=1 | Stroke Color 0,255,150,80
+
+
+[Reflection]
+Meter=Shape
+Shape=Rectangle 4,4,232,182,14 | Fill Color 255,255,255,10
+
+
+
+;========================
+; HEADER
+;========================
+
+[Title]
+Meter=String
+Text=◈ NETWORK CORE
+X=120
+Y=12
+StringAlign=Center
+FontFace=#FontName#
+FontSize=10
+FontColor=#Green#
+StringStyle=Bold
+AntiAlias=1
+
+
+[Status]
+Meter=String
+Text=● CONNECTED
+X=120
+Y=32
+StringAlign=Center
+FontFace=#FontName#
+FontSize=7
+FontColor=#SoftGreen#
+AntiAlias=1
+
+
+[Line]
+Meter=Shape
+Shape=Line 15,48,225,48 | StrokeWidth=1 | Stroke Color 0,255,150,60
+
+
+
+;========================
+; NETWORK DATA
+;========================
+
+[Download]
+Meter=String
+MeasureName=MeasureDownload
+Text=↓ DOWN   %1B/s
+X=15
+Y=62
+FontFace=#FontName#
+FontSize=8
+FontColor=#White#
+AntiAlias=1
+
+
+[DownloadBar]
+Meter=Bar
+MeasureName=MeasureDownload
+X=120
+Y=66
+W=95
+H=3
+BarColor=0,255,150,220
+SolidColor=255,255,255,15
+
+
+
+[Upload]
+Meter=String
+MeasureName=MeasureUpload
+Text=↑ UP     %1B/s
+X=15
+Y=88
+FontFace=#FontName#
+FontSize=8
+FontColor=#White#
+AntiAlias=1
+
+
+[UploadBar]
+Meter=Bar
+MeasureName=MeasureUpload
+X=120
+Y=92
+W=95
+H=3
+BarColor=0,255,150,220
+SolidColor=255,255,255,15
+
+
+
+[IP]
+Meter=String
+MeasureName=MeasureIP
+Text=IP  %1
+X=15
+Y=115
+FontFace=#FontName#
+FontSize=7
+FontColor=#White#
+AntiAlias=1
+
+
+
+[Security]
+Meter=String
+Text=FIREWALL : ACTIVE#CRLF#PORT : 443 OPEN#CRLF#VPN : READY
+X=15
+Y=140
+FontFace=#FontName#
+FontSize=7
+FontColor=#SoftGreen#
+AntiAlias=1
+
+
+
+;========================
+; FOOTER
+;========================
+
+[Footer]
+Meter=String
+Text=NETWORK SECURE
+X=120
+Y=172
+StringAlign=Center
+FontFace=#FontName#
+FontSize=7
+FontColor=#Green#
+AntiAlias=1

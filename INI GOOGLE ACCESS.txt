@@ -1,0 +1,165 @@
+[Rainmeter]
+Update=1000
+AccurateText=1
+DynamicWindowSize=1
+BackgroundMode=2
+SolidColor=0,0,0,1
+
+
+[Metadata]
+Name=Arthemist Hacker Google HUD
+Author=ChatGPT
+Information=Cyber Glass Search Interface
+Version=4.0
+
+
+[Variables]
+FontName=Consolas
+Green=0,255,140,255
+DarkGreen=0,180,100,220
+White=220,255,240,230
+
+
+;========================
+; GOOGLE SEARCH INPUT
+;========================
+
+[MeasureSearch]
+Measure=Plugin
+Plugin=InputText
+SolidColor=5,10,12,120
+StringAlign=Left
+StringStyle=Bold
+FontColor=#White#
+FontFace=#FontName#
+FontSize=10
+X=35
+Y=70
+W=260
+H=25
+FocusDismiss=1
+DefaultValue=""
+Command1=["https://www.google.com/search?q=bawuk"]
+UpdateDivider=86400
+
+
+;========================
+; GLASS CYBER PANEL
+;========================
+
+[GlassPanel]
+Meter=Shape
+Shape=Rectangle 0,0,340,145,18 | Fill Color 5,10,15,100 | StrokeWidth 1 | Stroke Color 0,255,140,90
+
+
+[GlassReflection]
+Meter=Shape
+Shape=Rectangle 5,5,330,135,16 | Fill Color 255,255,255,12 | StrokeWidth 0
+
+
+[NeonLayer]
+Meter=Shape
+Shape=Rectangle 10,10,320,125,14 | Fill Color 0,255,140,5 | StrokeWidth 0
+
+
+;========================
+; HEADER
+;========================
+
+[Header]
+Meter=String
+Text=[ GOOGLE://ACCESS ]
+X=25
+Y=15
+FontFace=#FontName#
+FontSize=12
+FontColor=#Green#
+StringStyle=Bold
+AntiAlias=1
+
+
+[Status]
+Meter=String
+Text=STATUS : ONLINE  |  ENCRYPTED SEARCH
+X=25
+Y=38
+FontFace=#FontName#
+FontSize=7
+FontColor=#DarkGreen#
+AntiAlias=1
+
+
+
+;========================
+; SEARCH BOX
+;========================
+
+[SearchBorder]
+Meter=Shape
+Shape=Rectangle 25,62,290,35,8 | Fill Color 0,0,0,90 | StrokeWidth=1 | Stroke Color 0,255,140,70
+
+
+[SearchIcon]
+Meter=String
+Text=>
+X=35
+Y=70
+FontFace=#FontName#
+FontSize=12
+FontColor=#Green#
+AntiAlias=1
+
+
+[SearchHint]
+Meter=String
+Text=DISINI BUAT NYARI WOKK!!
+X=55
+Y=71
+FontFace=#FontName#
+FontSize=9
+FontColor=180,255,220,180
+AntiAlias=1
+
+
+
+;========================
+; FOOTER
+;========================
+
+[Footer]
+Meter=String
+Text=[ PRESS ENTER TO EXECUTE ]
+X=25
+Y=112
+FontFace=#FontName#
+FontSize=8
+FontColor=#Green#
+AntiAlias=1
+
+
+;========================
+; DECORATION
+;========================
+
+[TopLine]
+Meter=Shape
+Shape=Line 25,55,315,55 | StrokeWidth=1 | Stroke Color 0,255,140,80
+
+
+[BottomLine]
+Meter=Shape
+Shape=Line 25,130,315,130 | StrokeWidth=1 | Stroke Color 0,255,140,80
+
+
+;========================
+; CLICK AREA
+;========================
+
+[Execute]
+Meter=String
+Text=""
+X=0
+Y=0
+W=340
+H=145
+LeftMouseUpAction=[!CommandMeasure MeasureSearch "ExecuteBatch 1"]
